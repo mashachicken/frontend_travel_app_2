@@ -2,23 +2,16 @@
 
 <h1>Places</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+    <% if @places.any? %>
+    <ul>
     <% @places.each do |place| %>
-      <tr>
-        <td><%= link_to 'Show', place %></td>
-        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+    <li> <a href="places/<%=place.fetch('id')%>"><%= place.fetch("city") %></a> </li>
+      <% end %>
+      </ul>
+    <% else %>
+    <p> no places to display </p>
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
